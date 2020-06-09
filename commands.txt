@@ -1,0 +1,70 @@
+Setting up Environment ------- USE SUDO
+############################
+
+#install pip
+sudo yum install python-pip
+
+#install virtualenv
+sudo pip install virtualenv
+
+#INSTALL PYTHON 2.7
+--------------------
+# Compilers and related tools:
+
+sudo yum groupinstall -y "development tools"
+
+# Libraries needed during compilation to enable all features of Python:
+
+yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
+
+# If you are on a clean "minimal" install of CentOS you also need the wget tool:
+
+yum install -y wget
+
+#Python 2.7.14:
+
+wget http://python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz
+tar xf Python-2.7.14.tar.xz
+cd Python-2.7.14
+./configure --prefix=/usr/local --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
+sudo make altinstall
+
+# Strip the Python 2.7
+strip /usr/local/lib/libpython2.7.a
+
+First get the script:
+wget https://bootstrap.pypa.io/get-pip.py
+
+# Then execute it using Python 2.7 and/or Python 3.6:
+python2.7 get-pip.py
+
+
+ 
+#Make VirtualENVIRONMENT
+
+virtualenv --python=/usr/local/bin/python2.7 /home/cloudera/Desktop/BDMAssignment/virtual
+
+cd BDMA/virtual/bin
+source activate
+
+#CHECK python version
+python -V
+
+#install tweepy
+sudo pip install tweepy
+
+#install pandas
+sudo pip install pandas
+
+
+#install MATPLOTLIB
+pip install numpy
+pip install matplotlib
+pip install ipython
+pip install scipy
+pip install numpy
+ipython -pylab
+
+
+
+
